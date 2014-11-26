@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+var debug = require('debug')('chat');
+var app = require('../app');
+
+app.set('port', process.env.PORT || 3000);
+
+var io = require('socket.io')();
+io.on('connection', function(socket) {
+  console.log('a user connected');
+
+  socket.on('chat message', function(data) {
+    console.log('message: ' + data);
+    io.emit('chat message', data);
+  });
+
+  socket.on('disconnect', function() {
+    console.log('user disconnected.');
+    io.emit('chat message', 'Bye');
+  });
+});
+
+var server = app.listen(app.get('port'), function() {
+  io.attach(server);
+  debug('Express server listening on port ' + server.address().port);
+});
+
