@@ -1,6 +1,7 @@
 extends layout
 
 block head
+  script(src='/javascripts/script.js')
 
 block content
   ul#messages
@@ -8,15 +9,16 @@ block content
     input#m(autocomplete='off')
     button Send
 
-  script(type='text/javascript').
-    var socket = io();
-    $('form').submit(function(e) {
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      //e.preventDefault();
-      return false;
-    });
+  //
+    script(type='text/javascript').
+      var socket = io();
+      $('form').submit(function(e) {
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        //e.preventDefault();
+        return false;
+      });
 
-    socket.on('chat message', function(data) {
-      $('#messages').append($('<li>').text(data));
-    });
+      socket.on('chat message', function(data) {
+        $('#messages').append($('<li>').text(data));
+      });
