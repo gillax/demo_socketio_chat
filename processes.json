@@ -3,8 +3,11 @@
     {
       "name": "chat",
       "script": "./bin/www",
+      "exec_mode": "cluster_mode",
+      "instances": "max",
       "env": {
         "PORT": 3000,
+        "NODE_PATH": "lib",
         "DEBUG": "chat"
       }
     }
