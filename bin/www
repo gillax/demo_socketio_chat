@@ -26,15 +26,15 @@ if (app.get('env') === 'production') {
 io.use(auth());
 
 io.on('connection', function(socket) {
-  console.log(socket.user.name + ' connected.');
+  console.log(socket.user.email.S + ' connected.');
 
   socket.on('chat message', function(data) {
-    console.log('message: ' + data + ' by ' + socket.user.name);
-    io.emit('chat message', data);
+    console.log('message: ' + data + ' by ' + socket.user.email.S);
+    io.emit('chat message', {user: socket.user.email.S, message: data});
   });
 
   socket.on('disconnect', function() {
-    console.log(socket.user.name + ' disconnected.');
+    console.log(socket.user.email.S + ' disconnected.');
     io.emit('chat message', 'Bye');
   });
 });

@@ -1,5 +1,6 @@
 $(function() {
-  var socket = io('http://localhost:3000/?token=hoges-token', {
+  var socket = io('http://localhost:3000', {
+    query: 'token=token1',
     reconnection: true,
     reconnectionAttempts: Infinity,
     reconnectionDelay: 1000,
@@ -30,7 +31,9 @@ $(function() {
 
   socket.on('chat message', function(data) {
     console.log('EventOn:chat message => ' + data);
-    $('#messages').append($('<li>').text(data));
+    $('#messages').append($('<li>').append($('<span>').addClass('name').text(data.user))
+      .append($('<span>').addClass('message').text(data.message)));
+    //$('#messages').append($('<li>').text(data.message));
   });
 
   $('form').submit(function(e) {

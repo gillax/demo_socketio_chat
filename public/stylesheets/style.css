@@ -44,3 +44,11 @@ form button {
   background: #eee;
 }
 
+#messages li span.name {
+  padding: 5px 10px;
+  background: springgreen;
+}
+
+#messages li span.message {
+  padding: 5px 10px;
+}
