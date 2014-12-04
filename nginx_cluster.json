@@ -1,0 +1,40 @@
+{
+  "apps": [
+    {
+      "name": "chat1",
+      "script": "./bin/www",
+      "env": {
+        "PORT": 3001,
+        "NODE_PATH": "lib",
+        "DEBUG": "chat"
+      }
+    },
+    {
+      "name": "chat2",
+      "script": "./bin/www",
+      "env": {
+        "PORT": 3002,
+        "NODE_PATH": "lib",
+        "DEBUG": "chat"
+      }
+    },
+    {
+      "name": "chat3",
+      "script": "./bin/www",
+      "env": {
+        "PORT": 3003,
+        "NODE_PATH": "lib",
+        "DEBUG": "chat"
+      }
+    },
+    {
+      "name": "chat4",
+      "script": "./bin/www",
+      "env": {
+        "PORT": 3004,
+        "NODE_PATH": "lib",
+        "DEBUG": "chat"
+      }
+    }
+  ]
+}
