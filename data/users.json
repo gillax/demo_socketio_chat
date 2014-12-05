@@ -37,43 +37,69 @@ params = {
             {
                 PutRequest: {
                     Item: {
-                        email:'user1@hoge.com',
-                        password:'password1',
-                        token:'token1'
+                        email: {
+                            S: 'user1@hoge.com'
+                        },
+                        password: {
+                            S: 'password1'
+                        },
+                        token: {
+                            S: 'token1'
+                        }
                     }
                 }
             },
             {
                 PutRequest: {
                     Item: {
-                        email:'user2@hoge.com',
-                        password:'password2',
-                        token:'token2'
+                        email: {
+                            S: 'user2@hoge.com'
+                        },
+                        password: {
+                            S: 'password2'
+                        },
+                        token: {
+                            S: 'token2'
+                        }
                     }
                 }
             },
             {
                 PutRequest: {
                     Item: {
-                        email:'user3@hoge.com',
-                        password:'password3',
-                        token:'token3'
+                        email: {
+                            S: 'user3@hoge.com'
+                        },
+                        password: {
+                            S: 'password3'
+                        },
+                        token: {
+                            S: 'token3'
+                        }
                     }
                 }
             },
             {
                 PutRequest: {
                     Item: {
-                        email:'user4@hoge.com',
-                        password:'password4',
-                        token:'token4'
+                        email: {
+                            S: 'user4@hoge.com'
+                        },
+                        password: {
+                            S: 'password4'
+                        },
+                        token: {
+                            S: 'token4'
+                        }
                     }
                 }
             },
         ],
     },
 };
+
 dynamodb.batchWriteItem(params, function(err, data) {
     if (err) print(err); // an error occurred
     else print(data); // successful response
 });
+
